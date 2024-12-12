@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\VisitController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/visits', [VisitController::class, 'index']);
+Route::get('/visits/new', [VisitController::class, 'create']);
+Route::post('/visits/store', [VisitController::class, 'store']);
